@@ -22,6 +22,36 @@ def generate_data_set(sigma):
 			mean = [1,0]
 		x.append(np.random.multivariate_normal(mean, cov))
 
+	# generate the couples 
+	'''
+	result = []
+	for i in range(200):
+		result.append([x[i], y[i]])
+	'''
+	result=[]
+	result.append([x],[y])
+	return result
+
+
 
 def perceptron():
-	
+	sigma = 0.05
+	data_set = generate_data_set(sigma)
+
+	# generate w
+	w = np.zeros(200)
+	converged = 0
+	while (!converged && other_thing_to_be_determined):
+		if (data_set[0][1]==1 && np.dot(w, data_set[0])>0):
+			converged = 1
+		if (data_set[0][1]==0 && np.dot(w, data_set[0])<=0):
+			converged = 1
+		if (data_set[0][1]==0 && np.dot(x, data_set[0])>0):
+			converged = 0
+			adjustment_parameter = 0.1
+			w = w-adjustment_parameter*data_set[0]
+
+
+
+
+
